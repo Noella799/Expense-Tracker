@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: rgb(247, 239, 239);
+    background-color: rgb(110, 70, 44);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg,#5e3b12 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.balance-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#currentBalance {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.currency-converter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.currency-converter select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+section {
+    background: rgb(45, 39, 39);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(246, 241, 241, 0.1);
+}
+
+.input-section {
+    grid-column: 1 / -1;
+}
+
+#transactionForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#transactionForm input,
+#transactionForm select,
+#transactionForm button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#transactionForm button {
+    background: #0e258c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#transactionForm button:hover {
+    background: #a186bb;
+}
+
+.savings-section {
+    grid-column: 1 / -1;
+}
+
+.savings-input {
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.savings-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.savings-input button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #0a0000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997);
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.transactions-section {
+    grid-column: 1 / -1;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.transactions-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f7f0f0;
+    transition: background 0.3s;
+}
+
+.transaction-item:hover {
+    background: #020303;
+}
+
+.transaction-income {
+    border-left: 4px solid #28a745;
+}
+
+.transaction-expense {
+    border-left: 4px solid #dc3545;
+}
+
+.transaction-details {
+    flex: 1;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.income {
+    color: #28a745;
+}
+
+.expense {
+    color: #dc3545;
+}
+
+.transaction-category {
+    background: #eff1f4;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #060709;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: rgb(13, 3, 3);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.analytics-section {
+    grid-column: 1 / -1;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+canvas {
+    max-height: 300px;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .balance-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .charts {
+        grid-template-columns: 1fr;
+    }
+}
