@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Expense Tracker</h1>
+            <div class="balance-section">
+                <h2>Current Balance: <span id="currentBalance">$0.00</span></h2>
+                <div class="currency-converter">
+                    <select id="currencySelect">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="RWF">RWF</option>
+                    </select>
+                    <span id="convertedBalance">$0.00</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h3>Add Transaction</h3>
+                <form id="transactionForm">
+                    <select id="type" required>
+                        <option value="">Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <input type="text" id="description" placeholder="Description" required>
+                    <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+                    <select id="category">
+                        <option value="general">General</option>
+                        <option value="food">Food & Dining</option>
+                        <option value="transport">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="date" id="date" required>
+                    <button type="submit">Add Transaction</button>
+                </form>
+            </section>
+
+            <section class="savings-section">
+                <h3>Savings Goal</h3>
+
+                <div class="savings-input-group">
+                    <div class="savings-input">
+                        <input type="number" id="savingsGoal" placeholder="Enter savings goal amount" step="0.01" min="0">
+                        <select id="savingsPeriod">
+                            <option value="one-time">One-time Goal</option>
+                            <option value="monthly">Monthly Savings</option>
+                            <option value="yearly">Yearly Savings</option>
+                        </select>
+                        <button onclick="setSavingsGoal()">Set Savings Goal</button>
+                    </div>
+
+                    <div class="savings-preview">
+                        <small>Current savings: <span id="currentSavings">$0.00</span></small>
+                        <small>Remaining: <span id="remainingAmount">$0.00</span></small>
+                    </div>
+                </div>
+
+                <div class="savings-display">
+                    <div class="savings-info">
+                        <div class="goal-info">
+                            <span>Target: <strong id="displayGoal">$0.00</strong></span>
+                            <span>Progress: <strong id="savingsProgress">0%</strong></span>
+                            <button onclick="editSavingsGoal()" class="edit-btn">Edit</button>
+                            <button onclick="clearSavingsGoal()" class="clear-btn">Clear</button>
+                        </div>
+                    </div>
+                        <div class="progress-container">
+                            <div class="progressFill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="savings-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Saved</span>
+                            <span class="stat-value" id="savedAmount">$0.00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">To Go</span>
+                            <span class="stat-value" id="toGoAmount">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Timeframe</span>
+                        <span class="stat-value" id="timeframeDisplay">One-time</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="transactions-section">
+                <h3>Recent Transactions</h3>
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Search transactions...">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="income">Income</option>
+                        <option value="food">Food & Dining</option>
+                        <option value="transport">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div id="transactionsList" class="transactions-list"></div>
+            </section>
+
+
+            <section class="analytics-section">
+                <h3>Financial Analytics</h3>
+                <div class="charts">
+                    <canvas id="spendingChart"></canvas>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
