@@ -25,3 +25,5 @@ Chart.js (Library)
 Purpose: Data visualization for financial analytics
 Type: Client-side JavaScript library
 Documentation: [Chart.js Docs](https://www.chartjs.org/docs/)
+
+Demo Video link : https://youtu.be/rRBcbr51kv8
