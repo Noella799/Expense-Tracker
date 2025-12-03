@@ -1,7 +1,7 @@
 Smart Expense Tracker
 
 A comprehensive personal finance management application that helps users track expenses, income, and savings with real-time currency conversion and financial analytics.
-
+https://uwera.tech/
 Features
 
 Transaction Management: Add, view, and delete income and expense transactions
